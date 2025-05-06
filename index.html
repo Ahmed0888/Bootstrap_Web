@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Tutors Pakistan – Learn from Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f0f4f8;
+        color: #1a1a1a;
+        line-height: 1.6;
+      }
+      .navbar-dark {
+        background-color: #1a237e;
+        box-shadow: 0 2px 6px rgba(26, 35, 126, 0.3);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      .navbar-dark.scrolled {
+        background-color: #3949ab;
+        box-shadow: 0 4px 12px rgba(57, 73, 171, 0.6);
+      }
+      .navbar-brand {
+        font-weight: 600;
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+      }
+      .nav-link {
+        font-weight: 400;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: #3949ab;
+      }
+      .hero-section {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #3949ab 0%, #1a237e 100%);
+        color: white;
+      }
+      .hero-section h1 {
+        font-weight: 600;
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+      .hero-section .btn-primary {
+        background-color: #fdd835;
+        border: none;
+        color: #1a237e;
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        box-shadow: 0 4px 8px rgba(253, 216, 53, 0.5);
+        transition: background-color 0.3s ease;
+      }
+      .hero-section .btn-primary:hover {
+        background-color: #fbc02d;
+        color: #0d0d0d;
+      }
+      .subjects-section {
+        padding: 4rem 0;
+        background-color: white;
+      }
+      .subjects-section h2 {
+        font-weight: 600;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: #1a237e;
+      }
+      .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        background-color: #f9f9f9;
+      }
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+      .card-icon {
+        font-size: 3rem;
+        color: #3949ab;
+        margin-bottom: 1rem;
+      }
+      .card-title {
+        font-weight: 600;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        color: #1a237e;
+      }
+      .card-text {
+        font-weight: 300;
+        font-size: 1rem;
+        color: #555;
+      }
+      .testimonials-section {
+        padding: 4rem 0;
+        background-color: #e8eaf6;
+      }
+      .testimonials-section h2 {
+        font-weight: 600;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: #1a237e;
+      }
+      .carousel-item blockquote {
+        font-style: italic;
+        font-size: 1.1rem;
+        color: #333;
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+        padding: 1rem 2rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .carousel-item blockquote footer {
+        margin-top: 0.75rem;
+        font-weight: 600;
+        color: #3949ab;
+      }
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        filter: invert(1);
+      }
+      .enroll-section {
+        padding: 4rem 0;
+        background-color: white;
+      }
+      .enroll-section h2 {
+        font-weight: 600;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: #1a237e;
+      }
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .form-control,
+      .form-select {
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+      .form-control:focus,
+      .form-select:focus {
+        border-color: #3949ab;
+        box-shadow: 0 0 8px rgba(57, 73, 171, 0.3);
+        outline: none;
+      }
+      .btn-success {
+        background-color: #3949ab;
+        border: none;
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+      .btn-success:hover {
+        background-color: #1a237e;
+      }
+      .footer {
+        background-color: #1a237e;
+        color: white;
+        padding: 2rem 0;
+      }
+      .footer a {
+        color: #c5cae9;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .footer a:hover {
+        color: white;
+        text-decoration: underline;
+      }
+      .footer h5 {
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      .footer .social-icons a {
+        font-size: 1.8rem;
+        margin-right: 1rem;
+        color: #c5cae9;
+        transition: color 0.3s ease;
+      }
+      .footer .social-icons a:hover {
+        color: #fdd835;
+      }
+      @media (max-width: 767.98px) {
+        .hero-section h1 {
+          font-size: 2rem;
+        }
+        .card-icon {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Smart Tutors PK</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#subjects">Subjects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#testimonials">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#enroll">Enroll</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <img
+              src="https://media.istockphoto.com/id/1059510610/vector/it-communication-e-learning-internet-network-as-knowledge-base.jpg?s=612x612&w=0&k=20&c=QEyHx6JnZleLmW9lYgpzvLv765rizr__5zwwKylo300="
+              alt="Student learning online"
+              class="img-fluid rounded shadow"
+            />
+          </div>
+          <div class="col-md-6 text-center text-md-start">
+            <h1>
+              Online Tuition for Matric &amp; Inter – Trusted by 1,000+ students
+            </h1>
+            <button
+              class="btn btn-primary mt-3"
+              onclick="document.getElementById('enroll').scrollIntoView({ behavior: 'smooth' })"
+            >
+              Start Learning
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subjects Offered -->
+    <section id="subjects" class="subjects-section">
+      <div class="container">
+        <h2>Subjects Offered</h2>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+          <div class="col">
+            <div class="card h-100 text-center">
+              <div class="card-body">
+                <i class="bi bi-calculator card-icon"></i>
+                <h5 class="card-title">Mathematics</h5>
+                <p class="card-text">Concept-based teaching</p>
+                <p class="card-text">Board exam prep</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 text-center">
+              <div class="card-body">
+                <i class="bi bi-flask card-icon"></i>
+                <h5 class="card-title">Physics</h5>
+                <p class="card-text">Concept-based teaching</p>
+                <p class="card-text">Board exam prep</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 text-center">
+              <div class="card-body">
+                <i class="bi bi-book card-icon"></i>
+                <h5 class="card-title">Islamiat</h5>
+                <p class="card-text">Concept-based teaching</p>
+                <p class="card-text">Board exam prep</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 text-center">
+              <div class="card-body">
+                <i class="bi bi-pencil card-icon"></i>
+                <h5 class="card-title">Urdu</h5>
+                <p class="card-text">Concept-based teaching</p>
+                <p class="card-text">Board exam prep</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+      <div class="container">
+        <h2>Testimonials</h2>
+        <div
+          id="testimonialCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+          data-bs-interval="6000"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active text-center">
+              <blockquote class="blockquote">
+                <p>"I scored A+ in Physics thanks to Smart Tutors!"</p>
+                <footer class="blockquote-footer">Areeba, Karachi</footer>
+              </blockquote>
+            </div>
+            <div class="carousel-item text-center">
+              <blockquote class="blockquote">
+                <p>"Best Islamiat teacher I’ve found online."</p>
+                <footer class="blockquote-footer">Bilal, Lahore</footer>
+              </blockquote>
+            </div>
+            <div class="carousel-item text-center">
+              <blockquote class="blockquote">
+                <p>"The online classes helped me improve my Urdu skills."</p>
+                <footer class="blockquote-footer">Sana, Islamabad</footer>
+              </blockquote>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enrollment Form -->
+    <section id="enroll" class="enroll-section">
+      <div class="container">
+        <h2>Enrollment Form</h2>
+        <form>
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fullName"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="classSelect" class="form-label">Class</label>
+            <select class="form-select" id="classSelect" required>
+              <option value="">Select your class</option>
+              <option value="matric">Matric</option>
+              <option value="intermediate">Intermediate</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="subjectsInterested" class="form-label"
+              >Subjects Interested</label
+            >
+            <select
+              multiple
+              class="form-select"
+              id="subjectsInterested"
+              aria-label="Select multiple subjects"
+              required
+            >
+              <option value="mathematics">Mathematics</option>
+              <option value="physics">Physics</option>
+              <option value="islamiat">Islamiat</option>
+              <option value="urdu">Urdu</option>
+            </select>
+            <div class="form-text">
+              Hold down the Ctrl (windows) or Command (Mac) button to select
+              multiple options.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone/WhatsApp</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              placeholder="Enter your phone or WhatsApp number"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-success w-100">
+            Submit Request
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <div class="col-md-4 mb-3 mb-md-0">
+            <h5>Contact Info</h5>
+            <p>Email: info@smarttutorspk.com</p>
+            <p>Phone: +92 315 2265946</p>
+          </div>
+          <div class="col-md-4 mb-3 mb-md-0">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Home</a></li>
+              <li><a href="#subjects">Subjects</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#enroll">Enroll</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 social-icons">
+            <h5>Follow Us</h5>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <a
+              href="https://wa.me/923152265946"
+              target="_blank"
+              aria-label="WhatsApp"
+              ><i class="bi bi-whatsapp"></i
+            ></a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              aria-label="Instagram"
+              ><i class="bi bi-instagram"></i
+            ></a>
+          </div>
+        </div>
+        <div class="text-center mt-3">
+          &copy; 2024 Smart Tutors Pakistan. All rights reserved.
+        </div>
+        <div class="text-center mt-3"><b> Made by M.Ahmed Hashmi.</b></div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Navbar animation on scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.querySelector(".navbar-dark");
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
